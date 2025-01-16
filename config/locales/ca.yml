@@ -26,14 +26,14 @@ ca:
           add_multiple_translations: Afegir múltiples
           back: Enrere
           cancel: Cancel·lar
-          clear_cache: Clear cache
+          clear_cache: Aplica les traduccions
           confirm_duplicate: Esteu segur de voler duplicar aquest conjunt?
           duplicate: Duplicar
           help: Ajuda
           import: Importar
           new_translation: Nova traducció
           new_translation_set: Nou set/joc de traducció
-          title: Actions
+          title: Accions
           view: Visualitza
         add_translations:
           index:
@@ -43,7 +43,7 @@ ca:
             search: Buscar
         caches:
           clear:
-            success: Cache cleared successfully
+            success: Les traduccions s'han actualitzat correctament
         models:
           translation_sets:
             fields:
