@@ -24,6 +24,9 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-participatory_processes", DECIDIM_VERSION
+  gem "decidim-proposals", DECIDIM_VERSION
+
   gem "rubocop-performance", "~> 1.23.1"
 end
 
