@@ -23,6 +23,9 @@ gem "puma", ">= 5.6.2"
 # (Faker::Twitter no longer exists in newer versions)
 gem "faker", "3.2"
 
+# concurrent-ruby v1.3.5 has removed the dependency on logger
+gem "concurrent-ruby", "1.3.4"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
