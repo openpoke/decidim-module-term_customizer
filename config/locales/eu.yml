@@ -38,7 +38,7 @@ eu:
         add_translations:
           index:
             add: Gehitu
-            help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
+            help_html: <p>Hasteko, idatzi hizki pare bat bilaketa-panelean aldatu nahi duzun terminoan. Itxaron segundo batzuk eta zure bilaketarekin bat datozen itzulpen guztien zerrenda bat agertuko da bilaketa-eremuaren azpian. Egin klik aldatu nahi duzun zerrenda horretako itzulpenetan.</p> <p>Gehitu nahi duzun itzulpenen zerrendako bilaketa-eremuaren azpian agertuko dira. Aldatu nahi dituzun itzulpen guztiak gehitu ondoren, sakatu pantailaren beheko aldean dagoen " %{button_name}" botoian.</p>
             help_title: Nola bilatu itzulpenak?
             search: Bilatu
         caches:
@@ -99,8 +99,8 @@ eu:
             title: Itzulpena
           form:
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            help_title: Zer da itzulpen gako bat?
+            term_help_html: "<p>Pertsonalizatutako terminoa UI-an agertzea nahi duzun azken hitza da, jatorrizko terminoaren ordez. Jakina, pertsonalizatutako terminoa gaitutako hizkuntza bakoitzerako desberdina izan daiteke.</p>"
             term_help_title: Zer da personalizatutako termino bat?
             title: Itzulpena
           import:
@@ -108,7 +108,7 @@ eu:
             success: Itzulpenaak behar bezala inportatu dira.
           index:
             actions: Ekintzak
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p>Itzulpen-multzo honetan ez dago itzulpenik.</p> <p>Hasteko, multzo honi itzulpenak gehituz, biderik errazena "<a href="%{add_multiple_link}">%{button_name}</a>"botoia erabiltzea da, bertan itzulpenak IUn ikusten diren termino berberekin bilatu ahal izango diren.</p>
             selected: hautatua
           new:
             create: Sortu
@@ -118,7 +118,7 @@ eu:
               csv: CSV
               json: JSON
               xlsx: XLS
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
+            file_legend: 'Itzulpenak lortzeko inportazio fitxategi bat gehi daiteke. Onartutako formatuak:%{valid_mime_types}'
             start_import: Hasi inportazioa
             title: Itzulpenak inportatu
             zip_hint: Itzulpengintzen esportaziotik ZIP fitxategia ere igo dezakezu.
