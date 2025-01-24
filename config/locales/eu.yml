@@ -75,9 +75,9 @@ eu:
             title: Itzulpen multzoa
           form:
             add_constraint: Murrizketa gehitu
-            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
+            constraint_help_html: <p>Mugak arau espezifikoak dira, eta aukera ematen dute pertsonalizazioak testuinguru jakin batean aplikatzeko.</p> <p>Ez bada mugapen-araurik zehazten, aplikazio osoan aplikatuko dira multzo horretako pertsonalizazioak. Bestalde, multzo horretako pertsonalizazioak prozesu jakin batean bakarrik aplikatzea nahi bada, aukeratu "Partaidetza-prozesuak", partaidetza-espazio gisa, eta helburu-prozesu gisa, partaidetza-espazio gisa.</p><p>Gainera, pertsonalizazioak ere aplika daitezke osagai zehatz batean, mugapen-osagaia definituz. Muga anitzak definituz gero, horiek guztiak aplikatuko dira.</p>
             constraint_help_title: Zer dira murrizketak?
-            help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
+            help_html: <p>Itzulpen-multzo bat "edukitzailea" da, eta itzulpenak pertsonalizatu nahi diren testuinguru jakin baterako gordetzen ditu.</p> <p>Itzulpen-multzoek zure pertsonalizazioak antolatzen eta testuinguru desberdinetan aplikatzen laguntzen dizute. Horrek aukera ematen dizu itzulpen bera testuinguru desberdinetan pertsonalizatzeko.</p><p>Adibidez, "Gehitu" terminoa duen botoi bat pertsonalizatu nahi baduzu, prozesu parte-hartzaile desberdinetarako, itzulpen-multzo bereiziak sor ditzakezu bi prozesuetarako, eta prozesu horietarako multzoa aplikatu, mugak erabiliz.</p>
             help_title: Zer da itzulpen multzo bat?
             title: Itzulpen multzoa
           index:
@@ -98,7 +98,7 @@ eu:
             save: Gorde
             title: Itzulpena
           form:
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_html: <p>Itzulpen gako bat itzuli beharreko itzulpenaren erreferentzia tekniko bat da. Hau ez da aldatu nahi duzun terminoa, itzulpen horri erreferentzia egiten dion gako teknikoa baizik.</p><p>Adibidez, goiko menuko "Processes" terminoa aldatu nahi baduzu, <em>"decidim.menu.processes"</em> gakoa erabiliko duzu.</p><p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization.</a></p>
             help_title: Zer da itzulpen gako bat?
             term_help_html: "<p>Pertsonalizatutako terminoa UI-an agertzea nahi duzun azken hitza da, jatorrizko terminoaren ordez. Jakina, pertsonalizatutako terminoa gaitutako hizkuntza bakoitzerako desberdina izan daiteke.</p>"
             term_help_title: Zer da personalizatutako termino bat?
