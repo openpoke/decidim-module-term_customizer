@@ -7,7 +7,7 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section">
-      <div class="row column">
+      <div class="row column hashtags__container pb-4">
         <%= form.translated :text_field, :name, autofocus: true %>
       </div>
     </div>
@@ -27,8 +27,8 @@
         <% end %>
       <% end %>
     </div>
-    <div class="row column">
-      <button class="button button__sm button__secondary small hollow add-external-domain"><%= t(".add_constraint") %></button>
+    <div class="mt-4">
+      <button class="button button__sm button__secondary add-constraint"><%= t(".add_constraint") %></button>
     </div>
   </div>
 </div>
