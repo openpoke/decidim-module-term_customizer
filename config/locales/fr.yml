@@ -81,7 +81,7 @@ fr:
             help_title: Qu'est-ce qu'un ensemble de traductions ?
             title: Jeu de traductions
           index:
-            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
+            no_records_html: <p class="ml-2">Aucune ensemble de traduction disponible.</p> <p class="ml-2 mb-4">Commencez par ajouter une traduction définie à partir du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
           new:
             create: Créer
             title: Jeu de traductions
@@ -95,26 +95,26 @@ fr:
           destroy:
             success: La traduction a été supprimée.
           edit:
-            help_title: What is translation key?
+            help_title: Qu'est-ce qu'une clé de traduction ?
             save: Sauvegarder
             title: Traduction
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
+            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
+            term_help_title: Qu'est-ce qu'un terme personnalisé ?
           import:
             error: Erreur lors de l'importation des traductions
             success: Traductions importées avec succès.
           index:
             actions: Actions
-            no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p class="ml-2">Aucune traduction disponible dans cet ensemble.</p> <p class="ml-2 mb-4">Commencez par ajouter des traductions à cet ensemble. La façon la plus simple est d'utiliser le bouton "<a href="%{add_multiple_link}">%{button_name}</a>" où vous pouvez rechercher des traductions avec les mêmes termes que ceux que vous voyez dans l'interface utilisateur.</p>
             selected: sélectionné
           new:
             create: Créer
-            title: Translation
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            title: Traduction
+            help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
+            help_title: Qu'est-ce qu'une clé de traduction ?
+            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
+            term_help_title: Qu'est-ce qu'un terme personnalisé ?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -133,7 +133,7 @@ fr:
             success: Traductions supprimées avec succès.
           new:
             destroy: Supprimer
-            title: Delete translations
-            no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
+            title: Supprimer des traductions
+            no_records_html: <p class="ml-2 mb-4">Aucune traduction disponible dans cet ensemble.</p>
       menu:
         term_customizer: Paramétrages des traductions
