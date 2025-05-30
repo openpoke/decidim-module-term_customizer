@@ -81,7 +81,7 @@ cs:
             help_title: Co je to překladová sada?
             title: Překladová sada
           index:
-            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
+            no_records_html: <p class="ml-2">Žádné sady překladů nejsou k dispozici.</p> <p class="ml-2 mb-4">Začněte přidáním překladu sady z tlačítka "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>".</p>
           new:
             create: Vytvořit
             title: Překladové sady
@@ -95,26 +95,26 @@ cs:
           destroy:
             success: Překlad byl úspěšně odstraněn.
           edit:
-            help_title: What is translation key?
+            help_title: Co je překladový klíč?
             save: Uložit
             title: Překlad
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            help_html: <p>Překladový klíč je technickým odkazem na překlad, který má být přeložen. Toto není termín, který chcete změnit, ale technický klíč, který odkazuje na tento překlad.</p> <p>Například pokud chcete změnit termín <em>"Procesy"</em> v horním menu, byste použili klíč <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Přečtěte si více o Rails Internationalization</a>.</p>
+            term_help_html: "<p>Nastavený termín je poslední slovo, které se chcete objevit v uživatelském rozhraní namísto původního výrazu. Přizpůsobený termín se samozřejmě může lišit pro každý povolený jazyk.</p>"
+            term_help_title: Co je upravený termín?
           import:
             error: Chyba při importu překladů
             success: Překlady byly úspěšně importovány.
           index:
             actions: Akce
-            no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p class="ml-2">V této sadě nejsou k dispozici žádné překlady.</p> <p class="ml-2 mb-4">Začněte přidáním překladů do této sady. Nejjednodušším způsobem je použít tlačítko "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>", kde můžete vyhledávat překlady se stejnými termíny, jaké vidíte v uživatelském rozhraní.</p>
             selected: vybráno
           new:
             create: Vytvořit
-            title: Translation
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            title: Překlad
+            help_html: <p>Překladový klíč je technickým odkazem na překlad, který má být přeložen. Toto není termín, který chcete změnit, ale technický klíč, který odkazuje na tento překlad.</p> <p>Například pokud chcete změnit termín <em>"Procesy"</em> v horním menu, byste použili klíč <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Přečtěte si více o Rails Internationalization</a>.</p>
+            help_title: Co je překladový klíč?
+            term_help_html: "<p>Nastavený termín je poslední slovo, které se chcete objevit v uživatelském rozhraní namísto původního výrazu. Přizpůsobený termín se samozřejmě může lišit pro každý povolený jazyk.</p>"
+            term_help_title: Co je upravený termín?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -133,7 +133,7 @@ cs:
             success: Překlady byly úspěšně odstraněny.
           new:
             destroy: Vymazat
-            title: Delete translations
-            no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
+            title: Odstranit překlady
+            no_records_html: <p class="ml-2 mb-4">V této sadě nejsou k dispozici žádné překlady.</p>
       menu:
         term_customizer: Úprava termínů
