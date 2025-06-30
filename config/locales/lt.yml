@@ -1,93 +1,93 @@
 ---
-it:
+lt:
   activemodel:
     attributes:
       constraint:
-        component_id: Componente
-        subject_id: Spazio partecipativo
-        subject_manifest: Tipo di spazio partecipativo
+        component_id: Komponentas
+        subject_id: Dalyvaujamoji erdvė
+        subject_manifest: Dalyvaujamojo proceso tipas
       translation:
-        key: Chiave di traduzione
-        value: Termine personalizzato
+        key: Vertimo raktas
+        value: Keičiamas terminas
       translation_set:
-        name: Nome
+        name: Pavadinimas
       translations_import:
-        file: Importa File
+        file: Importuoti rinkmeną
     errors:
       models:
         translations_import:
           attributes:
             file:
-              invalid_mime_type: 'Tipo di file non valido. I formati accettati sono: %{valid_mime_types}'
+              invalid_mime_type: 'Netinkamas rinkmenos tipas. Priimtini formatai: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
         actions:
-          add_multiple_translations: Aggiungi più
-          back: Indietro
-          cancel: Annulla
-          clear_cache: Cancella Cache
-          confirm_duplicate: Sei sicuro di voler duplicare questo set?
-          duplicate: Duplica
-          help: Guida
-          import: Importa
-          new_translation: Nuova traduzione
-          new_translation_set: Nuovo set di traduzione
+          add_multiple_translations: Pridėti kelis
+          back: Atgal
+          cancel: Atšaukti
+          clear_cache: Išvalyti talpyklą
+          confirm_duplicate: Ar tikrai norėtumėte dublikuoti šią kolekciją?
+          duplicate: Dublikuoti
+          help: Pagalba
+          import: Importuoti
+          new_translation: Naujas vertimas
+          new_translation_set: Nauja vertimų kolekcija
           title: Actions
-          view: Visualizza
+          view: Peržiūrėti
         add_translations:
           index:
-            add: Aggiungi
-            help_html: <p>Inizia digitando un paio di lettere che appaiono nel termine che vuoi cambiare nel pannello di ricerca. Attendere alcuni secondi e una lista di tutte le traduzioni corrispondenti alla ricerca verrà visualizzata sotto il campo di ricerca. Fare clic sulle traduzioni nella lista che si desidera modificare. Esse appariranno sotto il campo di ricerca nell'elenco delle traduzioni da aggiungere.</p> <p>Una volta che hai aggiunto tutte le traduzioni che vuoi cambiare, clicca sul pulsante "%{button_name}" nella parte inferiore dello schermo.</p>
-            help_title: Come cercare le traduzioni?
-            search: Search
+            add: Pridėti
+            help_html: <p>Pradėkite rašyti porą raidžių, kurios yra norimame keisti termino paieškos skydelyje. Palaukite kelias sekundes, ir žemiau paieškos lauko bus rodomas sąrašas su visais vertimais, atitinkančiais jūsų paiešką. Spustelėkite vertimus tame sąraše, kuriuos norite pakeisti. Jie pasirodys žemiau paieškos lauko pridedamų vertimų sąraše.</p> <p>Kai pridėsite visus vertimus, kuriuos norite pakeisti, spustelėkite mygtuką „%{button_name}“ ekrano apačioje.</p>
+            help_title: Kaip ieškoti vertimų?
+            search: Ieškoti
         caches:
           clear:
-            success: Cache cancellata con successo
+            success: Talpykla išvalyta sėkmingai
         models:
           translation_sets:
             fields:
-              name: Nome
+              name: Pavadinimas
           translations:
             fields:
-              key: Chiave di traduzione
-              original_term: Termine originale
-              term: Termine personalizzato
+              key: Vertimo raktas
+              original_term: Originalus terminas
+              term: Pakeistas terminas
         titles:
-          add_multiple_translations: Aggiungi più
-          translation_sets: Set di traduzione
-          translations: Traduzioni
+          add_multiple_translations: Pridėti kelis
+          translation_sets: Vertimų kolekcija
+          translations: Vertimai
         translation_sets:
           constraint_fields:
-            constraint: Vincolo
-            remove: Elimina
+            constraint: Ribojimai
+            remove: Pašalinti
           create:
-            error: Errore nella creazione della traduzione.
-            success: Set di traduzioni creato con successo.
+            error: Klaida kuriant vertimų kolekciją.
+            success: Vertimų kolekcija sukurta.
           destroy:
-            success: Set di traduzioni eliminato con successo.
+            success: Vertimų kolekcija ištrinta.
           duplicate:
-            copied_set_name: Copia di %{name}
-            error: Errore nella duplicazione della traduzione.
-            success: Set di traduzioni duplicato con successo.
+            copied_set_name: '%{name} kopija'
+            error: Klaida dublikuojant vertimų kolekciją.
+            success: Vertimų kolekcija dublikuota.
           edit:
-            save: Salva
-            title: Set di traduzioni
+            save: Išsaugoti
+            title: Vertimų kolekcija
           form:
-            add_constraint: Aggiungi vincolo
-            constraint_help_html: <p>I vincoli sono regole specifiche che consentono di applicare le personalizzazioni in un set a un contesto specifico.</p> <p>Nel caso in cui non si definiscano regole vincolanti, le personalizzazioni in questo set si applicheranno all'intera applicazione. D'altra parte, se si desidera che le personalizzazioni in questo set si applichino solo a un processo specifico, selezionare "Processi partecipativi" come tipo di spazio partecipativo e il processo di destinazione come spazio partecipativo. Inoltre, è anche possibile applicare le personalizzazioni a un componente specifico definendo il componente per il vincolo.</p> <p>Se definisci più vincoli, le personalizzazioni si applicheranno in tutti questi.</p>
-            constraint_help_title: Quali sono i vincoli?
-            help_html: <p>Un set di traduzioni è un "contenitore" che contiene le traduzioni per un contesto specifico che si desidera personalizzare.</p> <p>I set di traduzioni ti aiutano a organizzare le tue personalizzazioni e applicarle a contesti diversi. Questo consente di personalizzare la stessa traduzione in diversi contesti.</p> <p>Ad esempio, se si desidera personalizzare un pulsante con il termine "Aggiungi" in modo diverso per i diversi processi partecipativi, è possibile creare set di traduzioni separati per entrambi i processi e applicare il set a quei processi utilizzando i vincoli.</p>
-            help_title: Cos'è un set di traduzione?
-            title: Set di traduzioni
+            add_constraint: Pridėti apribojimą
+            constraint_help_html: <p>Apribojimai yra specifinės taisyklės, leidžiančios taikyti individualizacijas rinkinyje tam tikram kontekstui.</p> <p>Jeigu neapibrėžiate jokių apribojimų taisyklių, šio rinkinio individualizacijos bus taikomos visai programai. Kita vertus, jei norite, kad šio rinkinio individualizacijos būtų taikomos tik tam tikram procesui, pasirinkite „Dalyvaujantys procesai“ kaip dalyvaujamojo erdvės tipą ir tikslinį procesą kaip dalyvaujamąją erdvę. Be to, galite taikyti individualizacijas tam tikram komponentui, apibrėždami apribojimui komponentą.</p> <p>Jeigu apibrėžiate kelis apribojimus, individualizacijos bus taikomos visuose jų.</p>
+            constraint_help_title: Kas yra apribojimai?
+            help_html: <p>Vertimų kolekcija yra „konteineris“, kuriame laikomi vertimai tam tikram kontekstui, kurį norite pritaikyti pagal savo poreikius.</p> <p>Vertimų rinkiniai padeda jums organizuoti savo pritaikymus ir taikyti juos skirtingiems kontekstams. Tai leidžia jums pritaikyti tą patį vertimą skirtingai skirtinguose kontekstuose.</p> <p>Pavyzdžiui, jei norite pritaikyti mygtuką su terminu „Pridėti“ skirtingai skirtingiems dalyvaujantiems procesams, galite sukurti atskirus vertimų rinkinius abiem procesams ir taikyti rinkinį tiems procesams naudodami apribojimus.</p>
+            help_title: Kas yra vertimų kolekcija?
+            title: Vertimų kolekcija
           index:
             no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
           new:
-            create: Crea
-            title: Set di traduzione
+            create: Kurti
+            title: Vertimų kolekcija
           update:
             error: Error updating translation set.
-            success: Set di traduzioni aggiornato con successo.
+            success: Translation set successfully updated.
         translations:
           create:
             error: Error creating translation.
@@ -96,8 +96,8 @@ it:
             success: Translation successfully deleted.
           edit:
             help_title: What is translation key?
-            save: Salva
-            title: Traduzione
+            save: Save
+            title: Translation
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
@@ -105,7 +105,7 @@ it:
             error: Error importing translations
             success: Translations successfully imported.
           index:
-            actions: Azioni
+            actions: Actions
             no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
             selected: selected
           new:
