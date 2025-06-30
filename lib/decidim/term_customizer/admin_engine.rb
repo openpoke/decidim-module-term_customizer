@@ -64,7 +64,7 @@ module Decidim
 
       initializer "decidim_term_customizer.cache_clear_fix" do
         # NOTE: remove this when Rails is updated to 7.0.8.8 or higher
-        if Gem::Version.new(Rails.version) < Gem::Version.new('7.0.8.8')
+        if Gem::Version.new(Rails.version) < Gem::Version.new("7.0.8.8")
           config.to_prepare do
             ActiveSupport::Cache::FileStore.class_eval do
               def file_path_key(path)
