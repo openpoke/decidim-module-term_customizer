@@ -1,9 +1,22 @@
 # Decidim::TermCustomizer
 
-[![Build Status](https://github.com/mainio/decidim-module-term_customizer/actions/workflows/ci_term_customizer.yml/badge.svg)](https://github.com/mainio/decidim-module-term_customizer/actions)
-[![codecov](https://codecov.io/gh/mainio/decidim-module-term_customizer/branch/master/graph/badge.svg)](https://codecov.io/gh/mainio/decidim-module-term_customizer)
+[![[CI] Lint](https://github.com/openpoke/decidim-module-term_customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/openpoke/decidim-module-term_customizer/actions/workflows/lint.yml)
+[![[CI] Test](https://github.com/openpoke/decidim-module-term_customizer/actions/workflows/test.yml/badge.svg)](https://github.com/openpoke/decidim-module-term_customizer/actions/workflows/test.yml)
 
-The gem has been developed by [Mainio Tech](https://www.mainiotech.fi/).
+The gem is a fork by the original [Term Customizer created by Mainio Tech](https://github.com/mainio/decidim-module-term_customizer) maintained by [Pokecode](https://pokecode.net).
+
+> **WHY THIS FORK**
+> The original Term Customizer is maintained at the pace that suits the original company according to the needs of their clients.
+> This means that many contributions, including translations, upgrades and fixes, can be on hold for many months before being merged. This is
+> a very uncomfortable for the majority of the Decidim ecosystem using this plugin. Including ourselves which have a much quicker response policy in general when it comes with updates and fixes.
+> See the [CHANGELOG](CHANGELOG.md) for changes related to this fork.
+>
+> **Future policy**
+> We will be monitoring the original code and we will port those PR that seem interesting or solve problems.
+> However, we encourage everyone to contribute here, we will commit on being responsive and community committed.
+>
+> Instructions on how to install are updated for using this fork accordingly.
+
 
 A [Decidim](https://github.com/decidim/decidim) module to customize the
 localized terms in the system. The module allows administrators to add
@@ -39,18 +52,24 @@ You can add the term customizations using either of the following methods:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-term_customizer"
+gem "decidim-term_customizer", github: "openpoke/decidim-module-term_customizer"
 ```
 
-And then execute:
+Install dependencies:
 
-```bash
-$ bundle
-$ bundle exec rails decidim_term_customizer:install:migrations
-$ bundle exec rails db:migrate
+```
+bundle
+bin/rails decidim:upgrade
+bin/rails db:migrate
 ```
 
-To keep the gem up to date, you can use the commands above to also update it.
+> **EXPERTS ONLY**
+>
+> Under the hood, when running `bundle exec rails decidim:upgrade` the `decidim-term_customizer` gem will run the following two tasks (that can also be run manually if you consider):
+>
+> ```bash
+> bin/rails decidim_term_customizer:install:migrations
+> ```
 
 ## Usage
 
