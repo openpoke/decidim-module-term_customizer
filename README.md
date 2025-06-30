@@ -7,12 +7,15 @@ The gem is a fork by the original [Term Customizer created by Mainio Tech](https
 
 > **WHY THIS FORK**
 > The original Term Customizer is maintained at the pace that suits the original company according to the needs of their clients.
-> This means that many contributions, including translations, upgrades and fixes, can be on hold for many months before being merged. This is
-> a very uncomfortable for the majority of the Decidim ecosystem using this plugin. Including ourselves which have a much quicker response policy in general when it comes with updates and fixes.
+>
+> This means that many contributions, including translations, upgrades and fixes, can be on hold for many months before being merged.
+> This is very uncomfortable for the majority of the Decidim ecosystem using this plugin. Including ourselves which have a much quicker response policy in general when it comes with updates and fixes.
+>
 > See the [CHANGELOG](CHANGELOG.md) for changes related to this fork.
 >
 > **Future policy**
 > We will be monitoring the original code and we will port those PR that seem interesting or solve problems.
+>
 > However, we encourage everyone to contribute here, we will commit on being responsive and community committed.
 >
 > Instructions on how to install are updated for using this fork accordingly.
