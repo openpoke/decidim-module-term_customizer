@@ -4,14 +4,18 @@ module Decidim
   module TermCustomizer
     module Admin
       class ExportJob < ApplicationJob
-        queue_as :default
+        include Decidim::PrivateDownloadHelper
+
+        queue_as :exports
 
         def perform(user, set, name, format)
           export_data = Decidim::Exporters.find_exporter(format).new(
             set.translations, TranslationSerializer
           ).export
 
-          ExportMailer.export(user, name, export_data).deliver_now
+          private_export = attach_archive(export_data, name, user)
+
+          ExportMailer.export(user, private_export).deliver_later
         end
       end
     end
