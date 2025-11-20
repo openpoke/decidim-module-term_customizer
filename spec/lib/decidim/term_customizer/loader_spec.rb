@@ -182,13 +182,13 @@ describe Decidim::TermCustomizer::Loader do
       end
     end
 
-    # The DalliStore does not implement `delete_matched` which allows us to
+    # The MemCacheStore (backed by Dalli) does not implement `delete_matched` which allows us to
     # test the `clear_cache` functionality when the cache implementation raises
     # a `NoMethodError`.
-    context "when using dalli_store" do
+    context "when using mem_cache_store with dalli backend" do
       before do
         allow(Rails).to receive(:cache).and_return(
-          ActiveSupport::Cache.lookup_store(:dalli_store)
+          ActiveSupport::Cache.lookup_store(:mem_cache_store)
         )
       end
 
