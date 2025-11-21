@@ -23,7 +23,7 @@ gem "faker", "~> 3.2"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
-  gem "dalli" # For testing MemCacheStore
+  gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
   gem "decidim-initiatives", DECIDIM_VERSION
   gem "decidim-participatory_processes", DECIDIM_VERSION

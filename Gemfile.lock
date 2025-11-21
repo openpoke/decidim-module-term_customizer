@@ -148,7 +148,7 @@ GEM
     css_parser (1.21.1)
       addressable
     csv (3.3.5)
-    dalli (3.2.8)
+    dalli (2.7.11)
     data_migrate (11.3.1)
       activerecord (>= 6.1)
       railties (>= 6.1)
@@ -980,7 +980,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
-  dalli
+  dalli (~> 2.7, >= 2.7.10)
   decidim (~> 0.31.0)
   decidim-dev (~> 0.31.0)
   decidim-initiatives (~> 0.31.0)
