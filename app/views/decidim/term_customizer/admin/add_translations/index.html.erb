@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("decidim.term_customizer.admin.titles.add_multiple_translations")) %>
 
 <div class="item_show__wrapper">
-  <div class="card" id="add-translations-search">
+  <div class="card" id="add-translations-search" data-controller="accordion">
     <div class="item_show__header">
       <h1 class="item_show__header-title">
         <div>
@@ -9,15 +9,15 @@
           &gt;
           <%= t "decidim.term_customizer.admin.titles.add_multiple_translations" %>
 
-          <a data-toggle="help-panel" class="label h-6 button button__sm button__secondary">
+          <button type="button" data-controls="help-panel" data-open="false" class="label h-6 button button__sm button__transparent-secondary">
             <%= icon "information-line" %>
             <%= t("actions.help", scope: "decidim.term_customizer.admin") %>
-          </a>
+          </button>
         </div>
       </h1>
     </div>
 
-    <div id="help-panel" class="callout help-text hide" data-toggler=".hide">
+    <div id="help-panel" class="callout help-text">
       <p><strong><%= t ".help_title" %></strong></p>
       <%= t ".help_html", button_name: t(".add") %>
     </div>
