@@ -94,7 +94,7 @@ module Decidim
               translation: { page: "2" }
             )
 
-            expect(response).to redirect_to("/sets/#{translation_set.id}/translations?page=2")
+            expect(response).to redirect_to(translation_set_translations_path(translation_set, page: 2))
           end
         end
       end
