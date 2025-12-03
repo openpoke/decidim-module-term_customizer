@@ -17,18 +17,19 @@ gem "decidim-term_customizer", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", ">= 5.6.2"
+gem "puma", ">= 6.3.1"
 
-# Lock faker to older version to avoid seed errors from Decidim
-# (Faker::Twitter no longer exists in newer versions)
-gem "faker", "3.2"
+gem "faker", "~> 3.2"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-initiatives", DECIDIM_VERSION
   gem "decidim-participatory_processes", DECIDIM_VERSION
   gem "decidim-proposals", DECIDIM_VERSION
+
+  gem "rubocop-performance", "~> 1.25"
 end
 
 group :development do
