@@ -47,7 +47,9 @@ module Decidim
         def component_from_argument(arg)
           component = find_object_by_class(arg, Decidim::Component)
           return component if component
-          return find_value_by_method(arg, :component) if arg.respond_to?(:component)
+
+          found = find_value_by_method(arg, :component)
+          return found if found.is_a?(Decidim::Component)
 
           if defined?(Decidim::Forms::Questionnaire)
             component = find_questionnaire_component(arg)
@@ -68,40 +70,42 @@ module Decidim
         def find_object_by_class(obj, klass, seen = {})
           return obj if obj.is_a?(klass)
           return nil if obj.nil?
+          return nil if seen[obj.__id__]
 
-          object_id = obj.__id__
-          return nil if seen[object_id]
+          seen[obj.__id__] = true
 
-          seen[object_id] = true
-          return find_object_by_class(obj.values, klass, seen) if obj.respond_to?(:values)
-
-          if obj.respond_to?(:each)
-            obj.each do |item|
-              found = find_object_by_class(item, klass, seen)
-              return found if found
-            end
+          values_from_iterable(obj).each do |item|
+            found = find_object_by_class(item, klass, seen)
+            return found if found
           end
 
           nil
         end
 
         def find_value_by_method(obj, method, seen = {})
-          object_id = obj.__id__
-          return nil if seen[object_id]
+          return nil if obj.nil?
+          return nil if seen[obj.__id__]
 
-          seen[object_id] = true
+          seen[obj.__id__] = true
           return obj.send(method) if obj.respond_to?(method)
 
-          return find_value_by_method(obj.values, method, seen) if obj.respond_to?(:values)
-
-          if obj.respond_to?(:each)
-            obj.each do |item|
-              found = find_value_by_method(item, method, seen)
-              return found if found
-            end
+          values_from_iterable(obj).each do |item|
+            found = find_value_by_method(item, method, seen)
+            return found if found
           end
 
           nil
+        end
+
+        def values_from_iterable(obj)
+          case obj
+          when Hash
+            obj.values
+          when Array
+            obj
+          else
+            []
+          end
         end
       end
     end
