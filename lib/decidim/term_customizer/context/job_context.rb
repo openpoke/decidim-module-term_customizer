@@ -35,20 +35,29 @@ module Decidim
         def organization_from_argument(arg)
           org = find_object_by_class(arg, Decidim::Organization)
 
-          org || arg.try(:organization)
+          org || find_value_by_method(arg, :organization)
         end
 
         def space_from_argument(arg)
           space = find_object_by_class(arg, Decidim::Participable)
 
-          space || arg.try(:participatory_space)
+          space || find_value_by_method(arg, :participatory_space)
         end
 
         def component_from_argument(arg)
           component = find_object_by_class(arg, Decidim::Component)
           return component if component
-          return arg.component if arg.respond_to?(:component)
+          return find_value_by_method(arg, :component) if arg.respond_to?(:component)
 
+          if defined?(Decidim::Forms::Questionnaire)
+            component = find_questionnaire_component(arg)
+            return component if component
+          end
+
+          nil
+        end
+
+        def find_questionnaire_component(arg)
           questionnaire_component = find_object_by_class(arg, Decidim::Forms::Questionnaire)&.questionnaire_for
           return questionnaire_component if questionnaire_component.is_a?(Decidim::Component)
           return questionnaire_component.component if questionnaire_component.respond_to?(:component)
@@ -56,14 +65,38 @@ module Decidim
           nil
         end
 
-        def find_object_by_class(obj, klass)
+        def find_object_by_class(obj, klass, seen = {})
           return obj if obj.is_a?(klass)
+          return nil if obj.nil?
 
-          return find_object_by_class(obj.values, klass) if obj.respond_to?(:values)
+          object_id = obj.__id__
+          return nil if seen[object_id]
+
+          seen[object_id] = true
+          return find_object_by_class(obj.values, klass, seen) if obj.respond_to?(:values)
 
           if obj.respond_to?(:each)
             obj.each do |item|
-              found = find_object_by_class(item, klass)
+              found = find_object_by_class(item, klass, seen)
+              return found if found
+            end
+          end
+
+          nil
+        end
+
+        def find_value_by_method(obj, method, seen = {})
+          object_id = obj.__id__
+          return nil if seen[object_id]
+
+          seen[object_id] = true
+          return obj.send(method) if obj.respond_to?(method)
+
+          return find_value_by_method(obj.values, method, seen) if obj.respond_to?(:values)
+
+          if obj.respond_to?(:each)
+            obj.each do |item|
+              found = find_value_by_method(item, method, seen)
               return found if found
             end
           end
