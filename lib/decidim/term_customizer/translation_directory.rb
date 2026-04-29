@@ -57,7 +57,7 @@ module Decidim
       end
 
       def all_translations
-        @all_translations ||= I18n.backend.translations(do_init: true)
+        @all_translations ||= backend.translations(do_init: true)
       end
 
       def merge_search_results(locale_results, primary_results)
