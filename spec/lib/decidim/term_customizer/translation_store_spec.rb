@@ -52,6 +52,17 @@ describe Decidim::TermCustomizer::TranslationStore do
   end
 
   describe "#by_term" do
+    context "when searching with accented characters" do
+      it "matches terms ignoring accents" do
+        expect(subject.by_term("öne twô thrèe1").length).to eq(1)
+        expect(subject.by_term("fïrst sécond thïrd").length).to eq(1)
+      end
+
+      it "does not match unrelated terms" do
+        expect(subject.by_term("öne thrèe").length).to eq(0)
+      end
+    end
+
     context "when case insensitive" do
       it "returns a specific transation for specific term" do
         expect(subject.by_term("One two three1").length).to eq(1)

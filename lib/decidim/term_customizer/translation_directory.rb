@@ -17,12 +17,17 @@ module Decidim
         @translations ||= TranslationStore.new(backend_translations)
       end
 
+      # as additional language might not be complete, we also search in the primary language translations to ensure full coverage
+      def primary_terms
+        @primary_terms ||= TranslationStore.new(all_translations[:en])
+      end
+
       def translations_search(search)
-        translations_by_key(search).merge(translations_by_term(search))
+        translations_by_key(search).merge(translations_by_term(search)).merge(primary_terms.by_term(search)).uniq
       end
 
       def translations_by_key(search)
-        translations.by_key(search)
+        primary_terms.by_key(search)
       end
 
       def translations_by_term(search, case_sensitive: false)
@@ -42,8 +47,11 @@ module Decidim
       end
 
       def backend_translations
-        list = backend.translations(do_init: true)
-        list[locale]
+        all_translations[locale]
+      end
+
+      def all_translations
+        backend.translations(do_init: true)
       end
     end
   end

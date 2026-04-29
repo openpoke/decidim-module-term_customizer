@@ -21,7 +21,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
 
   describe "#translations_search" do
     it "returns correct translations" do
-      expect(subject.translations_search("term customizer")).to eq(
+      expect(subject.translations_search("term customizer").to_h).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Term customizer"
       )
       expect(subject.translations_search("term_customizer").length).to eq(80)
@@ -45,6 +45,82 @@ describe Decidim::TermCustomizer::TranslationDirectory do
 
     it "returns correct translations" do
       expect(subject.translations_by_term("term customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+  end
+
+  context "when using accented characters in the search" do
+    it "returns correct translations when the search is case insensitive" do
+      expect(subject.translations_search("térm custômizer").to_h).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+
+    context "when the term contains accents" do
+      let(:locale) { :ca }
+
+      before do
+        allow(subject).to receive(:all_translations).and_return({
+                                                                  en: {
+                                                                    decidim: {
+                                                                      term_customizer: {
+                                                                        menu: {
+                                                                          term_customizer: "Term custômizer"
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                })
+      end
+
+      it "returns correct translations when the search is case insensitive" do
+        expect(subject.translations_search("térm customizer").to_h).to eq(
+          "decidim.term_customizer.menu.term_customizer" => "Term custômizer"
+        )
+      end
+    end
+  end
+
+  context "when the locale is not present in the translations" do
+    let(:locale) { :ca }
+
+    before do
+      allow(subject).to receive(:all_translations).and_return({
+                                                                en: {
+                                                                  decidim: {
+                                                                    term_customizer: {
+                                                                      menu: {
+                                                                        term_customizer: "Term customizer"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              })
+    end
+
+    it "does not return any translations by key when using the secondary language backend" do
+      expect(subject.translations.by_key("term_customizer")).to eq({})
+    end
+
+    it "return translations by key when using the primary language backend" do
+      expect(subject.primary_terms.by_key("term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+
+    it "still returns the correct translations by key globally" do
+      expect(subject.translations_by_key("term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+
+    it "does not returns the correct translations by term" do
+      expect(subject.translations_by_term("term customizer")).to eq({})
+    end
+
+    it "returns the correct translations by term globally with merged search" do
+      expect(subject.translations_search("term customizer").to_h).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Term customizer"
       )
     end

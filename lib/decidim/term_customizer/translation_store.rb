@@ -25,10 +25,14 @@ module Decidim
 
       private
 
+      def normalize(str)
+        str.unicode_normalize(:nfd).gsub(/\p{Mn}/, "")
+      end
+
       def includes_string?(source, search, case_sensitive: false)
         return source.include?(search) if case_sensitive
 
-        source.downcase.include?(search.downcase)
+        normalize(source).downcase.include?(normalize(search).downcase)
       end
 
       def flat_hash(hash)
