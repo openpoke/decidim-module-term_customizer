@@ -60,6 +60,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
     context "when the term contains accents" do
       let(:locale) { :ca }
 
+      # rubocop:disable RSpec/SubjectStub
       before do
         allow(subject).to receive(:all_translations).and_return({
                                                                   en: {
@@ -98,6 +99,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
                                                                 }
                                                               })
     end
+    # rubocop:enable RSpec/SubjectStub
 
     it "does not return any translations by key when using the secondary language backend" do
       expect(subject.translations.by_key("term_customizer")).to eq({})
@@ -129,6 +131,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
   context "when the locale has translations for the same keys as the primary language" do
     let(:locale) { :ca }
 
+    # rubocop:disable RSpec/SubjectStub
     before do
       allow(subject).to receive(:all_translations).and_return({
                                                                 en: {
@@ -152,6 +155,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
                                                                 }
                                                               })
     end
+    # rubocop:enable RSpec/SubjectStub
 
     it "returns the localized value for overlapping keys and falls back to English for missing ones in key searches" do
       expect(subject.translations_by_key("menu.term_customizer")).to eq(
