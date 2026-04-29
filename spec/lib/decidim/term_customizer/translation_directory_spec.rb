@@ -103,7 +103,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
       expect(subject.translations.by_key("term_customizer")).to eq({})
     end
 
-    it "return translations by key when using the primary language backend" do
+    it "returns translations by key when using the primary language backend" do
       expect(subject.primary_terms.by_key("term_customizer")).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Term customizer"
       )
@@ -115,7 +115,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
       )
     end
 
-    it "does not returns the correct translation by term" do
+    it "does not return the correct translation by term" do
       expect(subject.translations_by_term("term customizer")).to eq({})
     end
 

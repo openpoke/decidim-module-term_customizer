@@ -17,8 +17,9 @@ module Decidim
         @translations ||= TranslationStore.new(backend_translations)
       end
 
-      # as additional language might not be complete, we also search in the primary language translations to ensure full coverage
-      # Note we assume English is the primary language in Decidim, which won't be changing anytime soon
+      # Additional languages may be incomplete, so searches also include the primary
+      # language translations as a fallback to improve coverage. In Decidim,
+      # English is treated as the primary language for this fallback.
       def primary_terms
         @primary_terms ||= TranslationStore.new(all_translations[:en])
       end
