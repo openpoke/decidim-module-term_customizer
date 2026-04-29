@@ -115,7 +115,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
       )
     end
 
-    it "does not returns the correct translation by term" do
+    it "does not return the correct translation by term" do
       expect(subject.translations_by_term("term customizer")).to eq({})
     end
 
