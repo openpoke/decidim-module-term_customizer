@@ -28,7 +28,7 @@ module Decidim
       private
 
       def normalize(str)
-        str.unicode_normalize(:nfd).gsub(/\p{Mn}/, "")
+        str.unicode_normalize(:nfd).gsub(/\p{M}/, "")
       end
 
       def includes_string?(source, search, case_sensitive: false)
