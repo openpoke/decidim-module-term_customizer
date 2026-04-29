@@ -24,13 +24,14 @@ module Decidim
       end
 
       def translations_search(search)
-        translations_by_key(search)
-          .merge(primary_terms.by_term(search))
-          .merge(translations_by_term(search))
+        merge_search_results(
+          translations.by_key(search).merge(translations.by_term(search)),
+          primary_terms.by_key(search).merge(primary_terms.by_term(search))
+        )
       end
 
       def translations_by_key(search)
-        primary_terms.by_key(search)
+        merge_search_results(translations.by_key(search), primary_terms.by_key(search))
       end
 
       def translations_by_term(search, case_sensitive: false)
@@ -55,6 +56,10 @@ module Decidim
 
       def all_translations
         backend.translations(do_init: true)
+      end
+
+      def merge_search_results(locale_results, primary_results)
+        primary_results.merge(locale_results)
       end
     end
   end

@@ -125,4 +125,43 @@ describe Decidim::TermCustomizer::TranslationDirectory do
       )
     end
   end
+
+  context "when the locale has translations for the same keys as the primary language" do
+    let(:locale) { :ca }
+
+    before do
+      allow(subject).to receive(:all_translations).and_return({
+                                                                en: {
+                                                                  decidim: {
+                                                                    term_customizer: {
+                                                                      menu: {
+                                                                        term_customizer: "Term customizer"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                },
+                                                                ca: {
+                                                                  decidim: {
+                                                                    term_customizer: {
+                                                                      menu: {
+                                                                        term_customizer: "Personalitzador de termes"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              })
+    end
+
+    it "returns the localized value for key searches" do
+      expect(subject.translations_by_key("term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Personalitzador de termes"
+      )
+    end
+
+    it "prefers the localized value when merging global search results" do
+      expect(subject.translations_search("term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Personalitzador de termes"
+      )
+    end
+  end
 end
