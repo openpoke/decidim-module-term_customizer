@@ -21,7 +21,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
 
   describe "#translations_search" do
     it "returns correct translations" do
-      expect(subject.translations_search("term customizer").to_h).to eq(
+      expect(subject.translations_search("term customizer")).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Term customizer"
       )
       expect(subject.translations_search("term_customizer").length).to eq(80)
@@ -52,7 +52,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
 
   context "when using accented characters in the search" do
     it "returns correct translations when the search is case insensitive" do
-      expect(subject.translations_search("térm custômizer").to_h).to eq(
+      expect(subject.translations_search("térm custômizer")).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Term customizer"
       )
     end
@@ -75,7 +75,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
       end
 
       it "returns correct translations when the search is case insensitive" do
-        expect(subject.translations_search("térm customizer").to_h).to eq(
+        expect(subject.translations_search("térm customizer")).to eq(
           "decidim.term_customizer.menu.term_customizer" => "Term custômizer"
         )
       end
@@ -120,7 +120,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
     end
 
     it "returns the correct translations by term globally with merged search" do
-      expect(subject.translations_search("term customizer").to_h).to eq(
+      expect(subject.translations_search("term customizer")).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Term customizer"
       )
     end

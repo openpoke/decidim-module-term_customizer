@@ -23,7 +23,9 @@ module Decidim
       end
 
       def translations_search(search)
-        translations_by_key(search).merge(translations_by_term(search)).merge(primary_terms.by_term(search)).uniq
+        translations_by_key(search)
+          .merge(translations_by_term(search))
+          .merge(primary_terms.by_term(search))
       end
 
       def translations_by_key(search)
