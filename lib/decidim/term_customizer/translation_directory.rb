@@ -18,14 +18,15 @@ module Decidim
       end
 
       # as additional language might not be complete, we also search in the primary language translations to ensure full coverage
+      # Note we assume English is the primary language in Decidim, which won't be changing anytime soon
       def primary_terms
         @primary_terms ||= TranslationStore.new(all_translations[:en])
       end
 
       def translations_search(search)
         translations_by_key(search)
-          .merge(translations_by_term(search))
           .merge(primary_terms.by_term(search))
+          .merge(translations_by_term(search))
       end
 
       def translations_by_key(search)
