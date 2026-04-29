@@ -135,7 +135,8 @@ describe Decidim::TermCustomizer::TranslationDirectory do
                                                                   decidim: {
                                                                     term_customizer: {
                                                                       menu: {
-                                                                        term_customizer: "Term customizer"
+                                                                        term_customizer: "Term customizer",
+                                                                        secondary_term: "Secondary term"
                                                                       }
                                                                     }
                                                                   }
@@ -152,15 +153,23 @@ describe Decidim::TermCustomizer::TranslationDirectory do
                                                               })
     end
 
-    it "returns the localized value for key searches" do
-      expect(subject.translations_by_key("term_customizer")).to eq(
+    it "returns the localized value for overlapping keys and falls back to English for missing ones in key searches" do
+      expect(subject.translations_by_key("menu.term_customizer")).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Personalitzador de termes"
+      )
+
+      expect(subject.translations_by_key("menu.secondary_term")).to eq(
+        "decidim.term_customizer.menu.secondary_term" => "Secondary term"
       )
     end
 
-    it "prefers the localized value when merging global search results" do
-      expect(subject.translations_search("term_customizer")).to eq(
+    it "prefers the localized value and keeps English fallback when merging global search results" do
+      expect(subject.translations_search("menu.term_customizer")).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Personalitzador de termes"
+      )
+
+      expect(subject.translations_search("menu.secondary_term")).to eq(
+        "decidim.term_customizer.menu.secondary_term" => "Secondary term"
       )
     end
   end
