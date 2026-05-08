@@ -65,6 +65,45 @@ describe Decidim::TermCustomizer::Loader do
 
       subject.translations_hash
     end
+
+    context "when a key exists as both leaf and branch" do
+      let(:conflicting_keys) do
+        {
+          custom: {
+            pae: {
+              services: {
+                "1": "another text",
+                "2": "yet another text"
+              }
+            }
+          }
+        }
+      end
+
+      it "builds a valid nested tree when parent key is inserted first" do
+        translations = [
+          create(:translation, locale: :en, key: "custom.pae.services", value: "something"),
+          create(:translation, locale: :en, key: "custom.pae.services.1", value: "another text"),
+          create(:translation, locale: :en, key: "custom.pae.services.2", value: "yet another text")
+        ]
+
+        allow(resolver).to receive(:translations).and_return(translations)
+
+        expect(subject.translations_hash).to include(en: conflicting_keys)
+      end
+
+      it "builds a valid nested tree when parent key is inserted last" do
+        translations = [
+          create(:translation, locale: :en, key: "custom.pae.services.1", value: "another text"),
+          create(:translation, locale: :en, key: "custom.pae.services.2", value: "yet another text"),
+          create(:translation, locale: :en, key: "custom.pae.services", value: "something")
+        ]
+
+        allow(resolver).to receive(:translations).and_return(translations)
+
+        expect(subject.translations_hash).to include(en: conflicting_keys)
+      end
+    end
   end
 
   describe "#clear_cache" do
