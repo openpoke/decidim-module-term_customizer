@@ -33,6 +33,36 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
+        context "when key has an existing parent key" do
+          let(:key) { "custom.pae.services.1" }
+
+          before do
+            create(:translation, translation_set:, locale:, key: "custom.pae.services")
+          end
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when key has an existing child key" do
+          let(:key) { "custom.pae.services" }
+
+          before do
+            create(:translation, translation_set:, locale:, key: "custom.pae.services.1")
+          end
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when conflicting key exists in another locale" do
+          let(:key) { "custom.pae.services" }
+
+          before do
+            create(:translation, translation_set:, locale: :fi, key: "custom.pae.services.1")
+          end
+
+          it { is_expected.to be_valid }
+        end
+
         it_behaves_like "translation validatable"
       end
     end
