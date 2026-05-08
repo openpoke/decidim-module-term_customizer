@@ -47,9 +47,16 @@ module Decidim
 
               current = final_hash
               keyparts.each do |key|
-                current[key.to_sym] ||= {}
-                current = current[key.to_sym]
+                key = key.to_sym
+
+                # A translation key cannot be both a leaf and a branch.
+                # If a scalar exists but we need to descend, prefer the branch.
+                current[key] = {} unless current[key].is_a?(Hash)
+                current = current[key]
               end
+
+              # Ignore leaf value if this key already has nested children.
+              next if current[lastkey].is_a?(Hash)
 
               current[lastkey] = tr.value
             end

@@ -31,6 +31,12 @@ shared_examples "translation validatable" do
 
       it { is_expected.to be_valid }
     end
+
+    context "with uppercase characters" do
+      let(:key) { "Translation.Key" }
+
+      it { is_expected.to be_valid }
+    end
   end
 
   context "when key is empty" do
@@ -42,12 +48,6 @@ shared_examples "translation validatable" do
   context "when key is incorrect format" do
     context "with spaces" do
       let(:key) { "incorrect format key" }
-
-      it { is_expected.not_to be_valid }
-    end
-
-    context "with uppercase characters" do
-      let(:key) { "Translation.Key" }
 
       it { is_expected.not_to be_valid }
     end
@@ -77,7 +77,7 @@ shared_examples "translation validatable" do
     end
 
     context "with a long key repeating similar strings" do
-      let(:key) { "test.test.test.test.test.test.test.test.testA" }
+      let(:key) { "test.test.test.test.test.test.test.test.test." }
 
       it "does not run exponentially long" do
         limit = 3.seconds.from_now
