@@ -21,6 +21,8 @@
         <thead>
           <tr>
             <th><%= t("models.translation_sets.fields.name", scope: "decidim.term_customizer.admin") %></th>
+            <th><%= t("models.translation_sets.fields.keys", scope: "decidim.term_customizer.admin") %></th>
+            <th><%= t("models.translation_sets.fields.total", scope: "decidim.term_customizer.admin") %>
             <th class="actions"><%= t("actions.title", scope: "decidim.term_customizer.admin") %></th>
           </tr>
         </thead>
@@ -34,6 +36,11 @@
                     <%= translated_attribute(set.name) %>
                   <% end %>
                 </td>
+                <td>
+                  <% preview_keys = set.translations.limit(4).pluck(:key) %>
+                  <%= preview_keys.first(3).join(", ") %><%= "..." if preview_keys.size > 3 %>
+                </td>
+                <td><%= set.translations.count %></td>
                 <td class="table-list__actions large-3">
                   <% if allowed_to? :read, :translation %>
                     <%= icon_link_to "eye-line", translation_set_translations_path(set), t("actions.view", scope: "decidim.term_customizer.admin"), class: "action-icon--show" %>

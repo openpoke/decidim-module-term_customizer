@@ -55,6 +55,8 @@ en:
           translation_sets:
             fields:
               name: Name
+              keys: Keys
+              total: Total translations
           translations:
             fields:
               key: Translation key
