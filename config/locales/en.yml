@@ -26,12 +26,12 @@ en:
           add_multiple_translations: Add multiple
           back: Back
           cancel: Cancel
-          clear_cache: Clear cache
+          clear_cache: Apply translations
           confirm_duplicate: Are you sure you want to duplicate this set?
           duplicate: Duplicate
           help: Help
           import: Import
-          new_translation: New translation
+          new_translation: Manual translation
           new_translation_set: New translation set
           title: Actions
           view: View
@@ -82,6 +82,7 @@ en:
           edit:
             save: Save
             title: Translation set
+            back: Back
           form:
             add_constraint: Add constraint
             constraint_help_html: <p>Constraints are specific rules that allow you
@@ -103,6 +104,7 @@ en:
               a button with the term "Add" differently for different participatory
               processes, you can create separate translation sets for both processes
               and apply the set to those processes using the constraints.</p>
+            name_help_text: Enter a descriptive title for the translation set.
             help_title: What is a translation set?
             title: Translation set
           index:
@@ -113,6 +115,7 @@ en:
           new:
             create: Create
             title: Translation sets
+            back: Back
           update:
             error: Error updating translation set.
             success: Translation set successfully updated.
