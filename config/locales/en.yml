@@ -20,6 +20,10 @@ en:
             file:
               invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          search_text_cont: Search translation sets by name
     term_customizer:
       admin:
         actions:
