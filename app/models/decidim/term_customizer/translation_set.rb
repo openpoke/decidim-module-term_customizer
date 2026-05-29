@@ -15,8 +15,8 @@ module Decidim
                class_name: "Decidim::TermCustomizer::Constraint",
                dependent: :destroy
 
-      # Create i18n ransackers for :name and :description.
-      # Create the :search_text ransacker alias for searching from both of these.
+      # Create i18n ransackers for :name.
+      # Create the :search_text ransacker alias for searching from this attribute.
       ransacker_i18n_multi :search_text, [:name]
 
       def self.ransackable_attributes(_auth_object = nil)
