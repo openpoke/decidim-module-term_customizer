@@ -18,6 +18,10 @@ module Decidim
           Translation.select("DISTINCT locale").to_a.map { |t| t.locale.to_sym }
         end
       end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(key)
+      end
     end
   end
 end

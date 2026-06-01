@@ -22,7 +22,7 @@ module Decidim
           end
 
           def search_field_predicate
-            :search_text_cont
+            :search_text_or_translations_key_cont
           end
         end
       end
