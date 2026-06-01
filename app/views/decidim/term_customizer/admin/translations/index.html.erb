@@ -25,6 +25,10 @@
         <% if allowed_to? :update, :organization %>
           <%= link_to t("actions.clear_cache", scope: "decidim.term_customizer.admin"), clear_caches_path, method: :delete, class: "imports-example tiny button button__sm button__secondary button--simple mr-2", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
         <% end %>
+        <%= link_to translation_sets_path, class: "button button__sm button__transparent-secondary" do %>
+          <%= icon "arrow-go-back-line" %>
+          <%= t(".back") %>
+        <% end %>
       </div>
 
       <%= render partial: "decidim/term_customizer/admin/translations/bulk_actions/destroy" %>
