@@ -38,11 +38,11 @@ module Decidim
 
     class << self
       def loader
-        Thread.current[:term_customizer_loader]
+        Thread.current.thread_variable_get(:term_customizer_loader)
       end
 
       def loader=(loader)
-        Thread.current[:term_customizer_loader] = loader
+        Thread.current.thread_variable_set(:term_customizer_loader, loader)
       end
     end
   end
