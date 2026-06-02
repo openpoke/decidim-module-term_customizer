@@ -26,6 +26,7 @@
           <tr>
             <th><%= t("models.translation_sets.fields.name", scope: "decidim.term_customizer.admin") %></th>
             <th><%= t("models.translation_sets.fields.keys", scope: "decidim.term_customizer.admin") %></th>
+            <th><%= t("models.translation_sets.fields.constraints", scope: "decidim.term_customizer.admin") %></th>
             <th><%= t("models.translation_sets.fields.total", scope: "decidim.term_customizer.admin") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.term_customizer.admin") %></th>
           </tr>
@@ -43,6 +44,20 @@
                 <td>
                   <% preview_keys = set.translations.limit(4).pluck(:key) %>
                   <%= preview_keys.first(3).join(", ") %><%= "..." if preview_keys.size > 3 %>
+                </td>
+                <td>
+                  <% set.constraints.each do |constraint| %>
+                    <span class="label">
+                      <% if constraint.component %>
+                        <%= translated_attribute(constraint.component.participatory_space.title) %> /
+                        <%= translated_attribute(constraint.component.name) %>
+                      <% elsif constraint.subject %>
+                        <%= translated_attribute(constraint.subject.title) %>
+                      <% else %>
+                        <%= t("models.translation_sets.constraints.global", scope: "decidim.term_customizer.admin") %>
+                      <% end %>
+                    </span>
+                  <% end %>
                 </td>
                 <td><%= set.translations.count %></td>
                 <td class="table-list__actions large-3">

@@ -19,7 +19,12 @@ module Decidim
       end
 
       describe "GET index" do
+        render_views
+
         before do
+          Bullet.add_safelist type: :counter_cache,
+                              class_name: "Decidim::TermCustomizer::TranslationSet",
+                              association: :translations
           create_list(:translation_set, 10, organization:)
           create_list(:translation_set, 10, organization: other_organization)
         end
@@ -29,6 +34,11 @@ module Decidim
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:index)
           expect(assigns(:sets).count).to eq(10)
+        end
+
+        it "shows the new translation set link" do
+          get :index
+          expect(response.body).to include(new_translation_set_path)
         end
       end
 

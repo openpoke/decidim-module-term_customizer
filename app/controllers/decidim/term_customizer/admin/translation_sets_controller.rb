@@ -11,7 +11,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :translation_set
-          @sets = filtered_collection
+          @sets = filtered_collection.includes(constraints: :subject)
         end
 
         def new

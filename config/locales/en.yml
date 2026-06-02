@@ -59,9 +59,12 @@ en:
         models:
           translation_sets:
             fields:
+              constraints: Constraints
               keys: Keys
               name: Name
               total: Total translations
+            constraints:
+              global: Global
           translations:
             fields:
               key: Translation key
