@@ -13,6 +13,10 @@
           <%= t("actions.help", scope: "decidim.term_customizer.admin") %>
         </button>
       </div>
+      <%= link_to translation_set_translations_path(set), class: "button button__sm button__transparent-secondary" do %>
+        <%= icon "arrow-go-back-line" %>
+        <%= t("actions.back", scope: "decidim.term_customizer.admin") %>
+      <% end %>
     </h1>
   </div>
   <div class="item__edit item__edit-1col">

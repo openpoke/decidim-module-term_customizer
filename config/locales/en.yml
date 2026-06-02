@@ -23,7 +23,8 @@ en:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_cont: Search translation sets by name or translations by key
+          search_text_or_translations_key_cont: Search translation sets by name or
+            translations by key
     term_customizer:
       admin:
         actions:
@@ -84,7 +85,6 @@ en:
             error: Error duplicating translation set.
             success: Translation set successfully duplicated.
           edit:
-            back: Back
             save: Save
             title: Translation set
           form:
@@ -117,7 +117,6 @@ en:
               class="text-blue-600 underline hover:text-blue-800"> %{button_name}
               </a>" button.</p>
           new:
-            back: Back
             create: Create
             title: Translation sets
           update:
@@ -130,7 +129,6 @@ en:
           destroy:
             success: Translation successfully deleted.
           edit:
-            back: Back
             help_html: <p>A translation key is a technical reference to the translation
               to be translatated. This is not the term you want to change but the
               technical key that refers to that translation.</p> <p>For example, if
@@ -149,7 +147,6 @@ en:
             success: Translations successfully imported.
           index:
             actions: Actions
-            back: Back
             no_records_html: <p class="ml-2">No translations available in this set.</p>
               <p class="ml-2 mb-4">Start by adding translations to this set. The easiest
               way is to use the "<a href="%{add_multiple_link}" class="text-blue-600
