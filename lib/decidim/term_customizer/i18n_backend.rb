@@ -20,17 +20,10 @@ module Decidim
         end
 
         def initialized?
-          !@translations.nil?
-        end
-
-        # Clean up translations hash on reload!
-        def reload!
-          @translations = nil
-          super
+          !TermCustomizer.loader.nil?
         end
 
         def translations
-          return @translations if @translations
           return {} unless TermCustomizer.loader
 
           @translations = TermCustomizer.loader.translations_hash
