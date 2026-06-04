@@ -11,12 +11,6 @@ describe "Decidim::TermCustomizer.loader" do
       thread1_loader = nil
       thread2_loader = nil
 
-      begin
-        Concurrent::CyclicBarrier.new(2)
-      rescue StandardError
-        nil
-      end
-
       t1 = Thread.new do
         Decidim::TermCustomizer.loader = loader_org1
         sleep 0.05
