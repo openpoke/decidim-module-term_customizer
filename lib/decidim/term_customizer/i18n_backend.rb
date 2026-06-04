@@ -30,6 +30,7 @@ module Decidim
         end
 
         def translations
+          return @translations if @translations
           return {} unless TermCustomizer.loader
 
           @translations = TermCustomizer.loader.translations_hash

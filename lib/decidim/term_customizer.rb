@@ -37,13 +37,7 @@ module Decidim
     end
 
     class << self
-      def loader
-        Thread.current.thread_variable_get(:term_customizer_loader)
-      end
-
-      def loader=(loader)
-        Thread.current.thread_variable_set(:term_customizer_loader, loader)
-      end
+      attr_accessor :loader
     end
   end
 end
