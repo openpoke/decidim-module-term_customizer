@@ -18,36 +18,55 @@ fr:
         translations_import:
           attributes:
             file:
-              invalid_mime_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
+              invalid_mime_type: 'Type de document invalide. Les formats acceptés
+                sont: %{valid_mime_types}'
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          search_text_or_translations_key_cont: Rechercher des jeux de traductions
+            par nom ou des traductions par clé
     term_customizer:
       admin:
         actions:
           add_multiple_translations: Ajouter plusieurs
           back: Retour
           cancel: Annuler
-          clear_cache: Purger le cache
+          clear_cache: Appliquer les traductions
           confirm_duplicate: Êtes-vous sûr de vouloir dupliquer cet ensemble ?
           duplicate: Dupliquer
           help: Aide
           import: Importer
-          new_translation: Nouvelle traduction
+          new_translation: Traduction manuelle
           new_translation_set: Nouveau jeu de traduction
           title: Actions
           view: Afficher
         add_translations:
           index:
             add: Ajouter
-            help_html: <p>Commencez par taper quelques lettres apparaissant dans le terme que vous souhaitez modifier dans le panneau de recherche. Attendez quelques secondes et une liste de toutes les traductions correspondant à votre recherche sera affichée sous le champ de recherche. Cliquez sur les traductions dans cette liste que vous souhaitez modifier. Elles apparaîtront sous le champ de recherche dans la liste des traductions à ajouter.</p> <p>Une fois que vous avez ajouté toutes les traductions que vous voulez modifier, cliquez sur le bouton "%{button_name}" en bas de l'écran.</p>
+            help_html: <p>Commencez par taper quelques lettres apparaissant dans le
+              terme que vous souhaitez modifier dans le panneau de recherche. Attendez
+              quelques secondes et une liste de toutes les traductions correspondant
+              à votre recherche sera affichée sous le champ de recherche. Cliquez
+              sur les traductions dans cette liste que vous souhaitez modifier. Elles
+              apparaîtront sous le champ de recherche dans la liste des traductions
+              à ajouter.</p> <p>Une fois que vous avez ajouté toutes les traductions
+              que vous voulez modifier, cliquez sur le bouton "%{button_name}" en
+              bas de l'écran.</p>
             help_title: Comment rechercher des traductions ?
             search: Rechercher
         caches:
           clear:
-            success: Cache purgé avec succès
+            success: Traductions appliquées avec succès
         models:
           translation_sets:
+            constraints:
+              global: Global
             fields:
+              constraints: Contraintes
+              keys: Clés
               name: Nom
+              total: Total des traductions
           translations:
             fields:
               key: Clé de traduction
@@ -75,13 +94,34 @@ fr:
             title: Jeu de traductions
           form:
             add_constraint: Ajouter contrainte
-            constraint_help_html: <p>Les contraintes sont des règles spécifiques qui vous permettent d'appliquer les personnalisations dans un ensemble à un contexte spécifique.</p> <p>Si vous ne définissez aucune règle de contrainte, les personnalisations de cet ensemble s'appliqueront à l'ensemble de l'application. Par contre, si vous voulez que les personnalisations de cet ensemble s'appliquent uniquement à un processus spécifique, sélectionnez "Processus participatifs" comme type d'espace participatif et le processus cible comme espace participatif. De plus, vous pouvez également appliquer les personnalisations à un composant spécifique en définissant le composant de la contrainte.</p> <p>Si vous définissez plusieurs contraintes, les personnalisations s'appliqueront à tous ceux-ci.</p>
+            constraint_help_html: <p>Les contraintes sont des règles spécifiques qui
+              vous permettent d'appliquer les personnalisations dans un ensemble à
+              un contexte spécifique.</p> <p>Si vous ne définissez aucune règle de
+              contrainte, les personnalisations de cet ensemble s'appliqueront à l'ensemble
+              de l'application. Par contre, si vous voulez que les personnalisations
+              de cet ensemble s'appliquent uniquement à un processus spécifique, sélectionnez
+              "Processus participatifs" comme type d'espace participatif et le processus
+              cible comme espace participatif. De plus, vous pouvez également appliquer
+              les personnalisations à un composant spécifique en définissant le composant
+              de la contrainte.</p> <p>Si vous définissez plusieurs contraintes, les
+              personnalisations s'appliqueront à tous ceux-ci.</p>
             constraint_help_title: Quelles sont les contraintes?
-            help_html: <p>Un jeu de traduction est un "conteneur" qui contient les traductions pour un contexte spécifique que vous souhaitez personnaliser.</p> <p>Les ensembles de traduction vous aident à organiser vos personnalisations et à les appliquer à différents contextes. Cela vous permet de personnaliser la même traduction différemment dans différents contextes.</p> <p>Par exemple, si vous voulez personnaliser un bouton avec le terme "Ajouter" différemment pour différents processus participatifs, vous pouvez créer des ensembles de traduction séparés pour les deux processus et appliquer l'ensemble à ces processus en utilisant les contraintes.</p>
+            help_html: <p>Un jeu de traduction est un "conteneur" qui contient les
+              traductions pour un contexte spécifique que vous souhaitez personnaliser.</p>
+              <p>Les ensembles de traduction vous aident à organiser vos personnalisations
+              et à les appliquer à différents contextes. Cela vous permet de personnaliser
+              la même traduction différemment dans différents contextes.</p> <p>Par
+              exemple, si vous voulez personnaliser un bouton avec le terme "Ajouter"
+              différemment pour différents processus participatifs, vous pouvez créer
+              des ensembles de traduction séparés pour les deux processus et appliquer
+              l'ensemble à ces processus en utilisant les contraintes.</p>
             help_title: Qu'est-ce qu'un ensemble de traductions ?
+            name_help_text: Saisissez un titre descriptif pour le jeu de traductions.
             title: Jeu de traductions
           index:
-            no_records_html: <p class="ml-2">Aucune ensemble de traduction disponible.</p> <p class="ml-2 mb-4">Commencez par ajouter une traduction définie à partir du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
+            no_records_html: <p class="ml-2">Aucune ensemble de traduction disponible.</p>
+              <p class="ml-2 mb-4">Commencez par ajouter une traduction définie à
+              partir du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
           new:
             create: Créer
             title: Jeu de traductions
@@ -95,35 +135,58 @@ fr:
           destroy:
             success: La traduction a été supprimée.
           edit:
+            help_html: <p>Une clé de traduction est une référence technique au mot
+              ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez
+              changer, mais la clé qui fait référence à cette traduction.</p> <p>Par
+              exemple, si vous voulez changer le terme <em>"Processus"</em> dans le
+              menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p>
+              <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">
+              En savoir plus sur l'internationalisation Rails</a>.</p>
             help_title: Qu'est-ce qu'une clé de traduction ?
             save: Sauvegarder
-            title: Traduction
-            help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
-            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
+            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous
+              voudriez apparaître dans l'interface utilisateur au lieu du terme original.
+              Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
             term_help_title: Qu'est-ce qu'un terme personnalisé ?
+            title: Traduction
           import:
             error: Erreur lors de l'importation des traductions
             success: Traductions importées avec succès.
           index:
             actions: Actions
-            no_records_html: <p class="ml-2">Aucune traduction disponible dans cet ensemble.</p> <p class="ml-2 mb-4">Commencez par ajouter des traductions à cet ensemble. La façon la plus simple est d'utiliser le bouton "<a href="%{add_multiple_link}">%{button_name}</a>" où vous pouvez rechercher des traductions avec les mêmes termes que ceux que vous voyez dans l'interface utilisateur.</p>
+            no_records_html: <p class="ml-2">Aucune traduction disponible dans cet
+              ensemble.</p> <p class="ml-2 mb-4">Commencez par ajouter des traductions
+              à cet ensemble. La façon la plus simple est d'utiliser le bouton "<a
+              href="%{add_multiple_link}">%{button_name}</a>" où vous pouvez rechercher
+              des traductions avec les mêmes termes que ceux que vous voyez dans l'interface
+              utilisateur.</p>
             selected: sélectionné
           new:
             create: Créer
-            title: Traduction
-            help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
+            help_html: <p>Une clé de traduction est une référence technique au mot
+              ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez
+              changer, mais la clé qui fait référence à cette traduction.</p> <p>Par
+              exemple, si vous voulez changer le terme <em>"Processus"</em> dans le
+              menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p>
+              <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">
+              En savoir plus sur l'internationalisation Rails</a>.</p>
             help_title: Qu'est-ce qu'une clé de traduction ?
-            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
+            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous
+              voudriez apparaître dans l'interface utilisateur au lieu du terme original.
+              Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
             term_help_title: Qu'est-ce qu'un terme personnalisé ?
+            title: Traduction
           new_import:
             accepted_mime_types:
               csv: CSV
               json: JSON
               xlsx: XLSX
-            file_legend: 'Ajouter un fichier d''importation qui sera analysé pour les traductions. Les formats supportés sont: %{valid_mime_types}'
+            file_legend: 'Ajouter un fichier d''importation qui sera analysé pour
+              les traductions. Les formats supportés sont: %{valid_mime_types}'
             start_import: Démarrer l'import
             title: Importer des traductions
-            zip_hint: Vous pouvez également télécharger le fichier ZIP à partir de l'export des traductions.
+            zip_hint: Vous pouvez également télécharger le fichier ZIP à partir de
+              l'export des traductions.
           update:
             error: Une erreur a lieu durant la mise à jour de la traduction.
             success: Traduction mis à jour avec succès.
@@ -133,7 +196,8 @@ fr:
             success: Traductions supprimées avec succès.
           new:
             destroy: Supprimer
+            no_records_html: <p class="ml-2 mb-4">Aucune traduction disponible dans
+              cet ensemble.</p>
             title: Supprimer des traductions
-            no_records_html: <p class="ml-2 mb-4">Aucune traduction disponible dans cet ensemble.</p>
       menu:
         term_customizer: Paramétrages des traductions

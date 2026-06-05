@@ -58,13 +58,13 @@ en:
             success: Translations applied successfully
         models:
           translation_sets:
+            constraints:
+              global: Global
             fields:
               constraints: Constraints
               keys: Keys
               name: Name
               total: Total translations
-            constraints:
-              global: Global
           translations:
             fields:
               key: Translation key
