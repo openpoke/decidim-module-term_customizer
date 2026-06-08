@@ -10,3 +10,4 @@ RSpec/DescribeClass:
   Exclude:
     - spec/i18n_spec.rb
     - "spec/system/**/*"
+    - "spec/lib/**/*"

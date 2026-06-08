@@ -33,6 +33,10 @@ module Decidim
           customizer_backend.reload!
         end
 
+        ActiveSupport::Notifications.subscribe "process_action.action_controller" do
+          TermCustomizer.loader = nil
+        end
+
         # The jobs are generally run in different context than the controllers
         # which causes the term customizations not to be active. During the
         # jobs, only the organization and global context translations are loaded
@@ -61,6 +65,10 @@ module Decidim
 
           # Force the backend to reload the translations for the job
           customizer_backend.reload!
+        end
+
+        ActiveSupport::Notifications.subscribe "perform.active_job" do
+          TermCustomizer.loader = nil
         end
       end
     end
