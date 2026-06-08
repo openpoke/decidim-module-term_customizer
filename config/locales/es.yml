@@ -24,8 +24,7 @@ es:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_cont: Buscar conjuntos de traducciones por
-            nombre o traducciones por clave
+          search_text_or_translations_key_or_translations_value_cont: Buscar conjuntos de traducciones por nombre o traducciones por clave o valor
     term_customizer:
       admin:
         actions:

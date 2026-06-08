@@ -23,7 +23,7 @@ ja:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_cont: 翻訳セットを名前で検索、または翻訳をキーで検索
+          search_text_or_translations_key_or_translations_value_cont: 翻訳セットを名前で検索、または翻訳をキーで検索
     term_customizer:
       admin:
         actions:

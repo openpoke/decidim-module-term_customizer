@@ -40,6 +40,24 @@ module Decidim
           get :index
           expect(response.body).to include(new_translation_set_path)
         end
+
+        context "when filtering by translation value" do
+          let(:matching_set) { create(:translation_set, organization:) }
+          let(:non_matching_set) { create(:translation_set, organization:) }
+
+          before do
+            create(:translation, translation_set: matching_set, value: "Lorem ipsum dolor sit amet")
+            create(:translation, translation_set: non_matching_set)
+          end
+
+          it "returns sets with translations matching the value" do
+            get :index, params: {
+              q: { search_text_or_translations_key_or_translations_value_cont: "Lorem ipsum dolor sit amet" }
+            }
+            expect(assigns(:sets)).to include(matching_set)
+            expect(assigns(:sets)).not_to include(non_matching_set)
+          end
+        end
       end
 
       describe "GET new" do

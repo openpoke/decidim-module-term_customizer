@@ -20,7 +20,11 @@ module Decidim
       end
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(key)
+        %w(key value)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        ["translation_set"]
       end
     end
   end

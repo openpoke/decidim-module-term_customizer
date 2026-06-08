@@ -24,8 +24,7 @@ it:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_cont: Cerca set di traduzione per nome o
-            traduzioni per chiave
+          search_text_or_translations_key_or_translations_value_cont: Cerca set di traduzione per nome o traduzioni per chiave o valore
     term_customizer:
       admin:
         actions:

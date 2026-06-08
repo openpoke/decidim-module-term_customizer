@@ -24,7 +24,7 @@ lt:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_cont: Ieškoti vertimų kolekcijų pagal pavadinimą
+          search_text_or_translations_key_or_translations_value_cont: Ieškoti vertimų kolekcijų pagal pavadinimą
             arba vertimų pagal raktą
     term_customizer:
       admin:

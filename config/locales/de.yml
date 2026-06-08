@@ -24,7 +24,7 @@ de:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_cont: Übersetzungssets nach Name oder Übersetzungen
+          search_text_or_translations_key_or_translations_value_cont: Übersetzungssets nach Name oder Übersetzungen
             nach Schlüssel suchen
     term_customizer:
       admin:

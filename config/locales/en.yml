@@ -23,8 +23,7 @@ en:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_cont: Search translation sets by name or
-            translations by key
+          search_text_or_translations_key_or_translations_value_cont: Search translation sets by name or translations by key or value
     term_customizer:
       admin:
         actions:
