@@ -7,6 +7,10 @@
           &gt;
           <%= t "translations.new_import.title", scope: "decidim.term_customizer.admin" %>
         </div>
+        <%= link_to translation_set_translations_path(set), class: "button button__sm button__transparent-secondary" do %>
+          <%= icon "arrow-go-back-line" %>
+          <%= t("actions.back", scope: "decidim.term_customizer.admin") %>
+        <% end %>
       </h2>
     </div>
 

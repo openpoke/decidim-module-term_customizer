@@ -20,34 +20,47 @@ ja:
             file:
               invalid_mime_type: '無効なファイルタイプです。使用できるフォーマット: %{valid_mime_types}'
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          search_text_or_translations_key_or_translations_value_cont: 翻訳セットを名前で検索、または翻訳をキーで検索
     term_customizer:
       admin:
         actions:
           add_multiple_translations: まとめて追加
           back: 戻る
           cancel: キャンセル
-          clear_cache: キャッシュのクリア
+          clear_cache: 翻訳を適用
           confirm_duplicate: このセットを複製してもよろしいですか？
           duplicate: 複製
           help: ヘルプ
           import: インポート
-          new_translation: 新しい翻訳
+          new_translation: 手動翻訳
           new_translation_set: 新しい翻訳セット
           title: アクション
           view: 表示
         add_translations:
           index:
             add: 追加
-            help_html: "<p>まず、検索パネルで変更したい用語に現れる文字を数文字入力してください。\n少し待つと、検索フィールドの下に検索に一致するすべての翻訳のリストが表示されます。\nそのリストの中から、変更したい文言をクリックします。</p>\n<p>変更したい翻訳をすべて追加したら、画面下部の「%{button_name}」ボタンをクリックします。</p>"
+            help_html: |-
+              <p>まず、検索パネルで変更したい用語に現れる文字を数文字入力してください。
+              少し待つと、検索フィールドの下に検索に一致するすべての翻訳のリストが表示されます。
+              そのリストの中から、変更したい文言をクリックします。</p>
+              <p>変更したい翻訳をすべて追加したら、画面下部の「%{button_name}」ボタンをクリックします。</p>
             help_title: 翻訳の検索方法
             search: 検索
         caches:
           clear:
-            success: キャッシュを削除しました
+            success: 翻訳を正常に適用しました
         models:
           translation_sets:
+            constraints:
+              global: グローバル
             fields:
+              constraints: 制約
+              keys: キー
               name: 名前
+              total: 翻訳合計
           translations:
             fields:
               key: 翻訳キー
@@ -67,7 +80,7 @@ ja:
           destroy:
             success: 翻訳セットは正常に削除されました。
           duplicate:
-            copied_set_name: '%{name} のコピー'
+            copied_set_name: "%{name} のコピー"
             error: 翻訳セットの複製エラー
             success: 翻訳セットは正常に複製されました。
           edit:
@@ -75,13 +88,27 @@ ja:
             title: 翻訳セット
           form:
             add_constraint: 制約の追加
-            constraint_help_html: "<p>制約とは、セット内のカスタマイズを特定のコンテキストのみに適用できるようにするための特別なルールです。</p>\n<p>制約ルールを定義しない場合、このセットのカスタマイズは、アプリケーション全体に適用されます。\n一方、このセットのカスタマイズを特定のプロセスのみに適用したい場合は、\n参加型スペースの種類として「参加型プロセス」、参加型スペースとして対象のプロセスを選択します。\nさらに、制約にコンポーネントを定義することで、カスタマイズを特定のコンポーネントのみに適用することもできます。</p>\n<p>複数の制約を定義した場合、カスタマイズはそれら全てに適用されます。</p>"
+            constraint_help_html: |-
+              <p>制約とは、セット内のカスタマイズを特定のコンテキストのみに適用できるようにするための特別なルールです。</p>
+              <p>制約ルールを定義しない場合、このセットのカスタマイズは、アプリケーション全体に適用されます。
+              一方、このセットのカスタマイズを特定のプロセスのみに適用したい場合は、
+              参加型スペースの種類として「参加型プロセス」、参加型スペースとして対象のプロセスを選択します。
+              さらに、制約にコンポーネントを定義することで、カスタマイズを特定のコンポーネントのみに適用することもできます。</p>
+              <p>複数の制約を定義した場合、カスタマイズはそれら全てに適用されます。</p>
             constraint_help_title: 制約とは?
-            help_html: "<p>翻訳セットは、カスタマイズしたい特定のコンテキストのための翻訳を保持する「コンテナ」です。</p>\n<p>翻訳セットを使用すると、カスタマイズを整理し、異なるコンテキストに適用することができます。\nこれにより、同じ翻訳を異なるコンテキストで異なるようにカスタマイズすることができます。</p>\n<p>たとえば、「追加」という用語のボタンを異なる参加型プロセス用で異なるようにカスタマイズしたい場合、\n両方のプロセス用に別々の翻訳セットを作成し、制約を使用してこれらのプロセスにセットを適用することができます。</p>"
+            help_html: |-
+              <p>翻訳セットは、カスタマイズしたい特定のコンテキストのための翻訳を保持する「コンテナ」です。</p>
+              <p>翻訳セットを使用すると、カスタマイズを整理し、異なるコンテキストに適用することができます。
+              これにより、同じ翻訳を異なるコンテキストで異なるようにカスタマイズすることができます。</p>
+              <p>たとえば、「追加」という用語のボタンを異なる参加型プロセス用で異なるようにカスタマイズしたい場合、
+              両方のプロセス用に別々の翻訳セットを作成し、制約を使用してこれらのプロセスにセットを適用することができます。</p>
             help_title: 翻訳セットとは?
+            name_help_text: 翻訳セットの説明的なタイトルを入力してください。
             title: 翻訳セット
           index:
-            no_records_html: <p class="ml-2">利用可能な翻訳セットはありません。</p> <p class="ml-2 mb-4">「<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>」ボタンから翻訳セットを追加します。</p>
+            no_records_html: <p class="ml-2">利用可能な翻訳セットはありません。</p> <p class="ml-2
+              mb-4">「<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800">
+              %{button_name} </a>」ボタンから翻訳セットを追加します。</p>
           new:
             create: 作成
             title: 翻訳セット
@@ -95,32 +122,39 @@ ja:
           destroy:
             success: 翻訳セットが正常に削除されました。
           edit:
+            help_html: |-
+              <p>翻訳キーは、翻訳される文言の内部的な参照先です。これは、変更したい用語そのものではなく、その用語を参照するための技術的なキーになります。</p>
+              <p>たとえば、トップメニューの <em>"Processes"</em> という用語を変更したい場合、キーとしては<em>"decidim.menu.processes"</em>を使用します。</p>
+              <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Railsの国際化についてもっと読む</a></p>
             help_title: 翻訳キーとは？
             save: 保存
-            title: 翻訳
-            help_html: "<p>翻訳キーは、翻訳される文言の内部的な参照先です。これは、変更したい用語そのものではなく、その用語を参照するための技術的なキーになります。</p>\n<p>たとえば、トップメニューの <em>\"Processes\"</em> という用語を変更したい場合、キーとしては<em>\"decidim.menu.processes\"</em>を使用します。</p>\n<p><a href=\"https://guides.rubyonrails.org/i18n.html\" target=\"_blank\"> Railsの国際化についてもっと読む</a></p>"
             term_help_html: "<p>カスタマイズされた文言は、元の単語の代わりにUIに表示させたい最終的な文言です。当然ながら、カスタマイズされた文言は、言語ごとに異なる場合があります。</p>"
             term_help_title: カスタマイズされた文言とは？
+            title: 翻訳
           import:
             error: 翻訳のインポートエラー
             success: 翻訳は正常にインポートされました。
           index:
             actions: アクション
-            no_records_html: <p class="ml-2">このセットで利用できる翻訳はありません。</p> <p class="ml-2 mb-4">このセットに翻訳を追加することから始めてください。最も簡単な方法は、「<a href="%{add_multiple_link}">%{button_name}</a>」ボタンを使って、UIに表示されているものと同じ言葉で翻訳を検索することです。</p>
+            no_records_html: <p class="ml-2">このセットで利用できる翻訳はありません。</p> <p class="ml-2
+              mb-4">このセットに翻訳を追加することから始めてください。最も簡単な方法は、「<a href="%{add_multiple_link}">%{button_name}</a>」ボタンを使って、UIに表示されているものと同じ言葉で翻訳を検索することです。</p>
             selected: 選択済み
           new:
             create: 作成
-            title: 翻訳
-            help_html: "<p>翻訳キーは、翻訳される文言の内部的な参照先です。これは、変更したい用語そのものではなく、その用語を参照するための技術的なキーになります。</p>\n<p>たとえば、トップメニューの <em>\"Processes\"</em> という用語を変更したい場合、キーとしては<em>\"decidim.menu.processes\"</em>を使用します。</p>\n<p><a href=\"https://guides.rubyonrails.org/i18n.html\" target=\"_blank\"> Railsの国際化についてもっと読む</a></p>"
+            help_html: |-
+              <p>翻訳キーは、翻訳される文言の内部的な参照先です。これは、変更したい用語そのものではなく、その用語を参照するための技術的なキーになります。</p>
+              <p>たとえば、トップメニューの <em>"Processes"</em> という用語を変更したい場合、キーとしては<em>"decidim.menu.processes"</em>を使用します。</p>
+              <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Railsの国際化についてもっと読む</a></p>
             help_title: 翻訳キーとは？
             term_help_html: "<p>カスタマイズされた文言は、元の単語の代わりにUIに表示させたい最終的な文言です。当然ながら、カスタマイズされた文言は、言語ごとに異なる場合があります。</p>"
             term_help_title: カスタマイズされた文言とは？
+            title: 翻訳
           new_import:
             accepted_mime_types:
               csv: CSV
               json: JSON
               xlsx: XLSX
-            file_legend: '翻訳用に解析されるインポートファイルを追加します。サポートしているフォーマット:%{valid_mime_types}'
+            file_legend: 翻訳用に解析されるインポートファイルを追加します。サポートしているフォーマット:%{valid_mime_types}
             start_import: インポートを開始
             title: 翻訳のインポート
             zip_hint: エクスポートした翻訳のZIPファイルもアップロードできます。
@@ -133,7 +167,7 @@ ja:
             success: 翻訳は正常に削除されました。
           new:
             destroy: 削除
-            title: 翻訳を削除
             no_records_html: <p class="ml-2 mb-4">このセットには翻訳がありません。</p>
+            title: 翻訳を削除
       menu:
         term_customizer: 文言の差し替え

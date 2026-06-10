@@ -16,7 +16,7 @@ module Decidim
           TermCustomizer.loader.clear_cache
           flash[:notice] = I18n.t("caches.clear.success", scope: "decidim.term_customizer.admin")
 
-          redirect_to translation_sets_path
+          redirect_back(fallback_location: translation_sets_path)
         end
       end
     end

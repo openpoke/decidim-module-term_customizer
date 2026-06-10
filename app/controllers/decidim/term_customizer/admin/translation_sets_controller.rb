@@ -4,13 +4,14 @@ module Decidim
   module TermCustomizer
     module Admin
       class TranslationSetsController < TermCustomizer::Admin::ApplicationController
+        include Decidim::TermCustomizer::Admin::Filterable
         include TranslatableAttributes
 
         helper_method :collection, :subject_manifests, :blank_constraint
 
         def index
           enforce_permission_to :read, :translation_set
-          @sets = collection
+          @sets = filtered_collection.includes(constraints: :subject)
         end
 
         def new

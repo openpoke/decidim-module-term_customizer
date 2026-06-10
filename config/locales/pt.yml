@@ -1,0 +1,7 @@
+pt:
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          clear_cache: Aplicar traduções
+          clear_cache_confirm: Tem a certeza de que pretende aplicar as traduções? Isto limpará a cache e as alterações ficarão visíveis na aplicação.
