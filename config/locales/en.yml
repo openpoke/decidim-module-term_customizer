@@ -23,7 +23,8 @@ en:
     admin:
       filters:
         search_placeholder:
-          search_text_or_translations_key_or_translations_value_cont: Search translation sets by name or translations by key or value
+          search_text_or_translations_key_or_translations_value_cont: Search translation
+            sets by name or translations by key or value
     term_customizer:
       admin:
         actions:
@@ -31,6 +32,8 @@ en:
           back: Back
           cancel: Cancel
           clear_cache: Apply translations
+          clear_cache_confirm: Do you want to apply the translations? This will clear
+            the cache and the changes will be visible in the application.
           confirm_duplicate: Are you sure you want to duplicate this set?
           duplicate: Duplicate
           help: Help

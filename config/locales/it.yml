@@ -32,6 +32,7 @@ it:
           back: Indietro
           cancel: Annulla
           clear_cache: Applica le traduzioni
+          clear_cache_confirm: Sei sicuro di voler applicare le traduzioni? Questo svuoterà la cache e le modifiche saranno visibili nell'applicazione.
           confirm_duplicate: Sei sicuro di voler duplicare questo set?
           duplicate: Duplica
           help: Guida

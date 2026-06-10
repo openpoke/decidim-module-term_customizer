@@ -32,6 +32,7 @@ fr:
           back: Retour
           cancel: Annuler
           clear_cache: Appliquer les traductions
+          clear_cache_confirm: Voulez-vous appliquer les traductions ? Cela videra le cache et les changements seront visibles dans l'application.
           confirm_duplicate: Êtes-vous sûr de vouloir dupliquer cet ensemble ?
           duplicate: Dupliquer
           help: Aide

@@ -32,6 +32,7 @@ es:
           back: Volver
           cancel: Cancelar
           clear_cache: Aplicar traducciones
+          clear_cache_confirm: ¿Está seguro de que quiere aplicar las traducciones? Esto vaciará la caché y los cambios serán visibles en la aplicación.
           confirm_duplicate: "¿Está seguro de que quiere duplicar este conjunto?"
           duplicate: Duplicar
           help: Ayuda

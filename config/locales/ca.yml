@@ -32,6 +32,7 @@ ca:
           back: Enrere
           cancel: Cancel·lar
           clear_cache: Aplica les traduccions
+          clear_cache_confirm: Voleu aplicar les traduccions? Això esborrarà la memòria cau i els canvis seran visibles a l'aplicació.
           confirm_duplicate: Esteu segur de voler duplicar aquest conjunt?
           duplicate: Duplicar
           help: Ajuda

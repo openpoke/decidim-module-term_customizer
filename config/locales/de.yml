@@ -33,6 +33,7 @@ de:
           back: Zurück
           cancel: Abbrechen
           clear_cache: Übersetzungen anwenden
+          clear_cache_confirm: Möchten Sie die Übersetzungen anwenden? Dadurch wird der Cache geleert und die Änderungen werden in der Anwendung sichtbar.
           confirm_duplicate: Sind Sie sicher, dass Sie dieses Set duplizieren möchten?
           duplicate: Duplizieren
           help: Hilfe
