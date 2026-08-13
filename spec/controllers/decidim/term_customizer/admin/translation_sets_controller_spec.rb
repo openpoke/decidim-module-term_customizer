@@ -58,6 +58,54 @@ module Decidim
             expect(assigns(:sets)).not_to include(non_matching_set)
           end
         end
+
+        context "when there are more sets than the page size" do
+          before { create_list(:translation_set, 16, organization:) }
+
+          it "shows the first page and links to the next one" do
+            get :index
+            expect(assigns(:sets).count).to eq(Decidim::Paginable::OPTIONS.first)
+            expect(response.body).to include("page=2")
+          end
+
+          it "shows the remaining sets in the next page" do
+            get :index, params: { page: 2 }
+            expect(assigns(:sets).count).to eq(1)
+          end
+        end
+
+        context "when the sets are not created in alphabetical order" do
+          let!(:last_set) { create(:translation_set, organization:, name: { en: "Zzz set" }) }
+          let!(:first_set) { create(:translation_set, organization:, name: { en: "Aaa set" }) }
+
+          it "sorts them by their translated name" do
+            get :index
+            ids = assigns(:sets).map(&:id)
+            expect(ids.index(first_set.id)).to be < ids.index(last_set.id)
+          end
+        end
+
+        context "when a set has no name in the current locale" do
+          let!(:localized_set) { create(:translation_set, organization:, name: { en: "Aaa set", ca: "Zzz conjunt" }) }
+          let!(:fallback_set) { create(:translation_set, organization:, name: { en: "Bbb set" }) }
+
+          it "sorts it by the name rendered in the list" do
+            get :index, params: { locale: "ca" }
+            ids = assigns(:sets).map(&:id)
+            expect(ids.index(fallback_set.id)).to be < ids.index(localized_set.id)
+          end
+        end
+
+        context "when two sets share the same name" do
+          let!(:first_set) { create(:translation_set, organization:, name: { en: "Same name" }) }
+          let!(:last_set) { create(:translation_set, organization:, name: { en: "Same name" }) }
+
+          it "keeps them in a stable order" do
+            get :index
+            ids = assigns(:sets).map(&:id)
+            expect(ids.select { |id| [first_set.id, last_set.id].include?(id) }).to eq([first_set.id, last_set.id])
+          end
+        end
       end
 
       describe "GET new" do
