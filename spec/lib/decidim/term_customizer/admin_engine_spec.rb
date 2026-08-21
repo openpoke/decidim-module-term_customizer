@@ -9,26 +9,24 @@ describe Decidim::TermCustomizer::AdminEngine do
         @block = block
       end
 
-      def call(*args)
-        instance_exec(*args, &@block)
+      def call(*)
+        instance_exec(*, &@block)
       end
     end
   end
 
   describe "#initialize decidim_term_customizer.admin_mount_routes" do
-    it "mounts the routes" do
-      expect(Decidim::Core::Engine).to receive(:routes) do |&block|
-        context = context_class.new(&block)
-        expect(context).to receive(:mount).with(
-          described_class,
-          at: "/admin/term_customizer",
-          as: "decidim_admin_term_customizer"
-        )
-
-        context.call
+    subject(:route) do
+      Decidim::Core::Engine.routes.routes.find do |r|
+        r.name == "decidim_admin_term_customizer"
       end
+    end
 
-      run_initializer("decidim_term_customizer.admin_mount_routes")
+    before { Rails.application.reload_routes_unless_loaded }
+
+    it "mounts the engine within the locale scope" do
+      expect(route).not_to be_nil
+      expect(route.path.spec.to_s).to eq("/:locale/admin/term_customizer")
     end
   end
 
