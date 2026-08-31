@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import "src/decidim/term_customizer/admin/multifield/component"
 import "src/decidim/term_customizer/admin/constraint_fields"
 

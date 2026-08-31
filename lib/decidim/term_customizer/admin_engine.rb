@@ -40,7 +40,11 @@ module Decidim
 
       initializer "decidim_term_customizer.admin_mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::TermCustomizer::AdminEngine, at: "/admin/term_customizer", as: "decidim_admin_term_customizer"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::TermCustomizer::AdminEngine, at: "/admin/term_customizer", as: "decidim_admin_term_customizer"
+          end
         end
       end
 
@@ -59,20 +63,6 @@ module Decidim
             active: :inclusive,
             if: allowed_to?(:update, :organization, organization: current_organization)
           )
-        end
-      end
-
-      initializer "decidim_term_customizer.cache_clear_fix" do
-        # NOTE: remove this when Rails is updated to 7.0.8.8 or higher
-        if Gem::Version.new(Rails.version) < Gem::Version.new("7.0.8.8")
-          config.to_prepare do
-            ActiveSupport::Cache::FileStore.class_eval do
-              def file_path_key(path)
-                fname = path[cache_path.to_s.size..-1].split(File::SEPARATOR, 4).last.delete(File::SEPARATOR)
-                URI.decode_www_form_component(fname, Encoding::UTF_8)
-              end
-            end
-          end
         end
       end
     end
