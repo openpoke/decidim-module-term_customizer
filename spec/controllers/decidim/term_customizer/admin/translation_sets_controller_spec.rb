@@ -30,7 +30,7 @@ module Decidim
         end
 
         it "renders the index listing" do
-          get :index
+          get :index, params: { locale: I18n.locale }
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:index)
           expect(assigns(:sets).count).to eq(10)
@@ -112,7 +112,7 @@ module Decidim
         render_views
 
         it "renders the empty form" do
-          get :new
+          get :new, params: { locale: I18n.locale }
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:new)
           expect(assigns(:subject_manifests)).to be_empty
@@ -128,7 +128,7 @@ module Decidim
               sm.name == :participatory_processes
             end
 
-            get :new
+            get :new, params: { locale: I18n.locale }
             expect(assigns(:subject_manifests)).to match_array(expected)
           end
         end
@@ -136,7 +136,7 @@ module Decidim
 
       describe "POST create" do
         it "creates a translation set" do
-          post :create, params: { name: { en: "Lorem ipsum dolor sit amet" } }
+          post :create, params: { name: { en: "Lorem ipsum dolor sit amet" }, locale: I18n.locale }
 
           expect(flash[:notice]).not_to be_empty
           expect(response).to have_http_status(:found)
@@ -147,7 +147,7 @@ module Decidim
         let(:translation_set) { create(:translation_set, organization:) }
 
         it "renders the edit form" do
-          get :edit, params: { id: translation_set.id }
+          get :edit, params: { id: translation_set.id, locale: I18n.locale }
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:edit)
         end
@@ -159,7 +159,8 @@ module Decidim
         it "updates the translation set" do
           put :update, params: {
             id: translation_set.id,
-            name: { en: "Lorem ipsum dolor sit amet" }
+            name: { en: "Lorem ipsum dolor sit amet" },
+            locale: I18n.locale
           }
 
           expect(flash[:notice]).not_to be_empty
@@ -171,7 +172,7 @@ module Decidim
         let(:translation_set) { create(:translation_set, organization:) }
 
         it "destroys the translation set" do
-          delete :destroy, params: { id: translation_set.id }
+          delete :destroy, params: { id: translation_set.id, locale: I18n.locale }
 
           expect(flash[:notice]).not_to be_empty
           expect(response).to have_http_status(:found)
@@ -182,7 +183,7 @@ module Decidim
         let(:translation_set) { create(:translation_set, organization:) }
 
         it "duplicates a translation set" do
-          post :duplicate, params: { id: translation_set.id }
+          post :duplicate, params: { id: translation_set.id, locale: I18n.locale }
 
           expect(flash[:notice]).not_to be_empty
           expect(response).to have_http_status(:found)

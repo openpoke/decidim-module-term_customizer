@@ -8,6 +8,14 @@ require_relative "term_customizer/context"
 
 module Decidim
   module TermCustomizer
+    # In case you want to customize the context detection for the jobs,
+    # configure your own context resolver.
+    mattr_accessor :job_context_class, default: Decidim::TermCustomizer::Context::JobContext
+
+    # In case you want to customize the context detection for the controllers
+    # and views, configure your own context resolver.
+    mattr_accessor :controller_context_class, default: Decidim::TermCustomizer::Context::ControllerContext
+
     autoload :I18nBackend, "decidim/term_customizer/i18n_backend"
     autoload :Import, "decidim/term_customizer/import"
     autoload :Loader, "decidim/term_customizer/loader"
@@ -21,14 +29,6 @@ module Decidim
     autoload :TranslationStore, "decidim/term_customizer/translation_store"
 
     EMPTY_HASH = {}.freeze
-
-    # In case you want to customize the context detection for the controllers
-    # and views, configure your own context resolver.
-    mattr_accessor :controller_context_class, default: Decidim::TermCustomizer::Context::ControllerContext
-
-    # In case you want to customize the context detection for the jobs,
-    # configure your own context resolver.
-    mattr_accessor :job_context_class, default: Decidim::TermCustomizer::Context::JobContext
 
     class << self
       # Kept for backwards compatibility with the `ActiveSupport::Configurable`
@@ -46,6 +46,10 @@ module Decidim
       def loader=(loader)
         Thread.current.thread_variable_set(:term_customizer_loader, loader)
       end
+    end
+
+    def self.manifests
+      Decidim.participatory_space_manifests + [Decidim.find_resource_manifest(:participatory_process_group)]
     end
   end
 end
