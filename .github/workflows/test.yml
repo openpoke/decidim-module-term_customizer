@@ -12,7 +12,7 @@ env:
   SIMPLECOV: 1
   NODE_VERSION: 22.14.0
   RUBY_VERSION: 3.4.12
-  CHROME_VERSION: 157
+  CHROME_VERSION: 156
   DISPLAY: ":99"
   RUBYOPT: '-W:no-deprecated'
   RAILS_ENV: test
@@ -51,11 +51,6 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-
-      - uses: browser-actions/setup-chrome@v2
-        with:
-          chrome-version: ${{ env.CHROME_VERSION }}
-          install-chromedriver: true
 
       - uses: actions/setup-node@v3
         with:
