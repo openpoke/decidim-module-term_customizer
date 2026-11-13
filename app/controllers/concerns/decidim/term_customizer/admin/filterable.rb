@@ -14,7 +14,7 @@ module Decidim
           private
 
           def base_query
-            Decidim::TermCustomizer::TranslationSet.joins(:constraints).where(
+            Decidim::TermCustomizer::TranslationSet.joins(:constraints).where( # rubocop:disable Decidim/OrganizationScopedFinder
               decidim_term_customizer_constraints: {
                 decidim_organization_id: current_organization.id
               }
@@ -23,7 +23,7 @@ module Decidim
 
           def filtered_collection
             paginate(
-              Decidim::TermCustomizer::TranslationSet
+              Decidim::TermCustomizer::TranslationSet # rubocop:disable Decidim/OrganizationScopedFinder
                 .where(id: query.result.select(:id).reorder(nil))
                 .order(translated_name_order, id: :asc)
             )

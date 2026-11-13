@@ -5,7 +5,7 @@ module Decidim
     module Context
       class JobContext < Base
         # rubocop:disable Metrics/CyclomaticComplexity
-        def resolve!
+        def resolve! # rubocop:disable Metrics/PerceivedComplexity
           # Figure out the organization and user through the job arguments if
           # passed for the job.
           user = nil
